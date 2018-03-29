@@ -1,0 +1,44 @@
+<!-- ToDoをv-forで書き直したToDoリスト -->
+
+<link rel="stylesheet" href="../css/bootstrap.min.css">
+
+<div id="app">
+  <div class="container">
+    <h2>ToDoリスト</h2>
+    <todo-form></todo-form>
+    <div class="btn-group" style="margin-bottom: 1em;">
+      <button class="btn btn-success">Done</button>
+    </div>
+    <div class="list-group">
+      <label v-for="item in items" class="list-group-item">
+        <input type="checkbox">
+        {{ item.name }}
+      </label>
+    </div>
+  </div>
+</div>
+
+<script src="../vue/vue.js"></script>
+
+<script>
+
+  Vue.component('todoForm', {
+    template: '\
+      <form>\
+        <input type="text" placeholder="起床">\
+        <button>追加</button>\
+      </form>'
+  });
+
+  var app = new Vue({
+    el: '#app',
+    data: {
+      items: [
+        { name: '手洗い' },
+        { name: 'うがい' },
+        { name: '歯磨き' }
+      ]
+    }
+  });
+
+</script>

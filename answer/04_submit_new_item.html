@@ -1,0 +1,64 @@
+<!-- 追加イベントを有効にしたToDoリスト -->
+
+<link rel="stylesheet" href="../css/bootstrap.min.css">
+
+<div id="app">
+  <div class="container">
+    <h2>ToDoリスト</h2>
+    <todo-form :item="newItem" v-on:create="appendItem"></todo-form>
+    <div class="btn-group" style="margin-bottom: 1em;">
+      <button class="btn btn-success">Done</button>
+    </div>
+    <div class="list-group">
+      <todo-item v-for="item in items" :item="item"></todo-item>
+    </div>
+  </div>
+</div>
+
+<script src="../vue/vue.js"></script>
+
+<script>
+
+  Vue.component('todoForm', {
+    props: ['item'],
+    template: '\
+      <form v-on:submit.prevent="createItem">\
+        <input v-model="item.name" type="text" placeholder="起床">\
+        <button>追加</button>\
+      </form>',
+    methods: {
+      createItem: function(event) {
+        if (!this.item.name) return;
+        this.$emit('create');
+      }
+    }
+  });
+
+  Vue.component('todoItem', {
+    props: ['item'],
+    template: '\
+      <label class="list-group-item">\
+        <input type="checkbox">\
+        {{ item.name }}\
+      </label>'
+  });
+
+  var app = new Vue({
+    el: '#app',
+    data: {
+      items: [
+        { name: '手洗い' },
+        { name: 'うがい' },
+        { name: '歯磨き' }
+      ],
+      newItem: { name: '' }
+    },
+    methods: {
+      appendItem: function() {
+        this.items.push(this.newItem);
+        this.newItem = { name: '' };
+      }
+    }
+  });
+
+</script>

@@ -1,0 +1,40 @@
+<!-- コンポーネント、イベントのないToDoリスト（初期状態） -->
+
+<link rel="stylesheet" href="../css/bootstrap.min.css">
+
+<div id="app">
+  <div class="container">
+    <h2>ToDoリスト</h2>
+    <form>
+      <input type="text" placeholder="起床">
+      <button>追加</button>
+    </form>
+    <div class="btn-group" style="margin-bottom: 1em;">
+      <button class="btn btn-success">Done</button>
+    </div>
+    <div class="list-group">
+      <label class="list-group-item">
+        <input type="checkbox">
+        手洗い
+      </label>
+      <label class="list-group-item">
+        <input type="checkbox">
+        うがい
+      </label>
+      <label class="list-group-item">
+        <input type="checkbox">
+        歯磨き
+      </label>
+    </div>
+  </div>
+</div>
+
+<script src="../vue/vue.js"></script>
+
+<script>
+
+  var app = new Vue({
+
+  });
+
+</script>

@@ -1,0 +1,27 @@
+<div id="app">
+  <parent></parent>
+
+  <!-- このchildコンポーネントはスコープ外のため読まれない -->
+  <!-- <child></child> -->
+</div>
+
+<script src="../vue/vue.js"></script>
+
+<script>
+
+  var Child = {
+    template: '<div>A custom component!</div>'
+  };
+
+  Vue.component('parent', {
+    template: '<child></child>',
+    components: {
+      'child': Child
+    }
+  });
+
+  var app = new Vue({
+    el: '#app'
+  });
+
+</script>

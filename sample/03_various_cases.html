@@ -1,0 +1,35 @@
+<div id="app">
+  <kebab-cased-component></kebab-cased-component>
+  <camel-cased-component></camel-cased-component>
+  <pascal-cased-component></pascal-cased-component>
+
+  <camelCasedComponent></camelCasedComponent>
+  <PascalCasedComponent></PascalCasedComponent>
+</div>
+
+<script src="../vue/vue.js"></script>
+
+<script>
+
+  var Kebab = {
+    template: '<p>ケバブたべたい</p>'
+  };
+
+  var Camel = {
+    template: '<p>キャメルかわいい</p>'
+  };
+
+  var Pascal = {
+    template: '<p>パスカル考えてる</p>'
+  };
+
+  var app = new Vue({
+    el: '#app',
+    components: {
+      'kebab-cased-component': Kebab,
+      'camelCasedComponent': Camel,
+      'PascalCasedComponent': Pascal
+    }
+  });
+
+</script>
